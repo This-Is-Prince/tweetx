@@ -1,8 +1,10 @@
+import Logo from "./Logo";
+
 const Login = () => {
   return (
     <article className="flex flex-col gap-y-20 pl-20 pt-10">
       <header className="flex flex-col gap-y-5 items-start">
-        <h1 className="text-pink-400 text-xl font-bold">TweetX</h1>
+        <Logo />
         <button className="py-2 px-6 border-2 rounded-xl font-bold text-sm border-gray-400 text-gray-600">
           Create Account
         </button>

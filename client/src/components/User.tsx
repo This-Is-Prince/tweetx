@@ -1,5 +1,3 @@
-import React from "react";
-
 const User = () => {
   return (
     <article className="border-b-2 text-gray-400 max-w-md m-auto flex items-center gap-x-5 py-10">

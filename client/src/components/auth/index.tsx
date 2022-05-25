@@ -1,11 +1,9 @@
-import Login from "./auth/Login";
-import SignUp from "./auth/SignUp";
+import { Outlet } from "react-router-dom";
 
-const Home = () => {
+const Auth = () => {
   return (
     <section className="min-h-screen grid grid-cols-[minmax(auto,450px),_1fr]">
-      {/* <Login /> */}
-      <SignUp />
+      <Outlet />
       <article className="">
         <img
           src="../../assets/bg-login.png"
@@ -17,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Auth;

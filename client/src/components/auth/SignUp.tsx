@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useAuthStore from "../../app/authstore";
 import Logo from "../utils/Logo";
 
 const SignUp = () => {
+  const { verify, token } = useAuthStore();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (verify()) {
+      navigate("/profile");
+    }
+  }, [token]);
   return (
     <article className="flex flex-col gap-y-20 pl-20 pt-10">
       <header className="flex flex-col gap-y-5 items-start">

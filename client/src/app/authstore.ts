@@ -1,4 +1,4 @@
-import create, { SetState } from "zustand";
+import create, { GetState, SetState } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface AuthStore {
@@ -8,7 +8,7 @@ interface AuthStore {
   verify: () => boolean;
 }
 
-const authStore = (set: SetState<AuthStore>) =>
+const authStore = (set: SetState<AuthStore>, get: GetState<AuthStore>) =>
   ({
     token: "",
     addToken: (token) => {
@@ -18,10 +18,11 @@ const authStore = (set: SetState<AuthStore>) =>
       set((state) => ({ ...state, token: "" }));
     },
     verify: () => {
-      return false;
+      console.log(get().token);
+      return get().token !== "";
     },
   } as AuthStore);
 
-const useAuthStore = create(persist(authStore));
+const useAuthStore = create(persist(authStore, { name: "token" }));
 
 export default useAuthStore;

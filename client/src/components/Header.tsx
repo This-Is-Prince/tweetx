@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Logo from "./utils/Logo";
 
 const Header = () => {
@@ -5,15 +6,24 @@ const Header = () => {
     <header className="py-4 px-40 m-auto flex items-center justify-between shadow-md">
       <Logo />
       <nav className="flex gap-x-10 text-gray-300 font-bold">
-        <a className={``} href="#">
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-pink-500" : "")}
+          to="/feeds"
+        >
           Feed
-        </a>
-        <a className={`text-pink-400`} href="#">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-pink-500" : "")}
+          to="/users"
+        >
           Users
-        </a>
-        <a className={``} href="#">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-pink-500" : "")}
+          to="/profile"
+        >
           Profile
-        </a>
+        </NavLink>
       </nav>
     </header>
   );
